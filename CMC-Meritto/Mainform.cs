@@ -18,23 +18,22 @@ namespace CMC_Meritto
             InitializeComponent();
         }
         DataTable table;
+        string currentPath;
+        string inpBackup = "";
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
 
-
-        private void btnParse_Click(object sender, EventArgs e)
-        {
-            
-        }
         bool editInputMod;
         private void txtInp_TextChanged(object sender, EventArgs e)
         {
+            lblStatusFileName.Text = currentPath + " *";
             if (editInputMod)
             {
                 table = MerittoCSVHelper.csvToGridEscapeQuote(txtInp.Text);
                 csvGridView.DataSource = table;
+                //csvGridView.Rows[0].ReadOnly = true;
             }
         }
 
@@ -46,11 +45,6 @@ namespace CMC_Meritto
             }
         }
 
-        
-        private void csvGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
 
         private void txtInp_Click(object sender, EventArgs e)
         {
@@ -62,34 +56,25 @@ namespace CMC_Meritto
             editInputMod = false;
         }
 
-        private void csvGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void metroTab_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_Click(object sender, EventArgs e)
         {
 
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            search(txtSearch.Text, 1);
+            lblContains.Text = search(txtSearch.Text, 1).ToString();
         }
 
         private void txtSearchFull_TextChanged(object sender, EventArgs e)
         {
-            search(txtSearchFull.Text, 2);
+            lblFull.Text = search(txtSearchFull.Text, 2).ToString();
         }
 
-        private void search(string key, int type)
+        private int search(string key, int type)
         {
-            if (csvGridView.Rows.Count == 0) return;
+            if (csvGridView.Rows.Count == 0) return 0;
+            int count = 0;
 
             foreach (DataGridViewCell cell in csvGridView.Rows[0].Cells)
             {
@@ -102,9 +87,10 @@ namespace CMC_Meritto
                         continue;
                     }
 
-                    if (cell.Value.ToString().Contains(key))
+                    if (cell.Value.ToString().Contains(key) || cell.Value.ToString().Contains(key.Replace(" ", "　")) || cell.Value.ToString().Contains(key.Replace("　", " ")))
                     {
                         cell.Style.BackColor = Color.OrangeRed;
+                        count++;
                     }
                     else
                     {
@@ -124,9 +110,10 @@ namespace CMC_Meritto
                         continue;
                     }
 
-                    if (cell.Value.ToString() == key)
+                    if (cell.Value.ToString() == key || cell.Value.ToString() == key.Replace(" ", "　") || cell.Value.ToString() == key.Replace("　", " "))
                     {
                         cell.Style.BackColor = Color.YellowGreen;
+                        count++;
                     }
                     else
                     {
@@ -136,12 +123,15 @@ namespace CMC_Meritto
                         }
                             
                     }
+
                 }
 
             }
+
+            return count;
         }
 
-        private void btnSaveCsv_Click(object sender, EventArgs e)
+        private void saveAs()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "CSV|*.csv";
@@ -152,10 +142,83 @@ namespace CMC_Meritto
             }
         }
 
+        private void btnSaveCsv_Click(object sender, EventArgs e)
+        {
+            saveAs();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             FormAbout about = new FormAbout();
+            about.TopMost = true;
             about.ShowDialog();
+        }
+
+        private void txtInp_DragDrop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void txtInp_DragOver(object sender, DragEventArgs e)
+        {
+            string[] fileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            currentPath = fileList[0].ToString();
+            editInputMod = true;
+            txtInp.Text = File.ReadAllText(currentPath, Encoding.Unicode);
+            lblStatusFileName.Text = currentPath;
+            inpBackup = File.ReadAllText(currentPath, Encoding.Unicode);
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            editInputMod = true;
+            txtInp.Text = "";
+        }
+
+        private void cboOntop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cboOntop.Checked)
+            {
+                this.TopMost = true;
+            } else
+            {
+                this.TopMost = false;
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentPath != "")
+            {
+                File.WriteAllText(currentPath, txtInp.Text, Encoding.Unicode);
+                lblStatusFileName.Text = currentPath;
+            } else
+            {
+                saveAs();
+            }
+            
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            editInputMod = true;
+            txtInp.Text = inpBackup;
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveAs();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            lblContains.Text = search(txtSearch.Text, 1).ToString();
+        }
+
+        private void txtSearchFull_KeyDown(object sender, KeyEventArgs e)
+        {
+            lblFull.Text = search(txtSearchFull.Text, 2).ToString();
         }
     }
 }

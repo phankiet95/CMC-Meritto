@@ -117,6 +117,8 @@
   <ItemGroup>
     <Content Include="meritto Icon.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\return1.png" />
+    <None Include="Resources\return.png" />
     <None Include="Resources\unnamed.png" />
     <None Include="Resources\CMCicon.png" />
   </ItemGroup>

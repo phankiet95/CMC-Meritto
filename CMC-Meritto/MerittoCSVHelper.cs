@@ -68,7 +68,7 @@ namespace CMC_Meritto
                     }
                 }
 
-                csv.Append(line.ToString());
+                csv.Append(line.ToString().Substring(0,line.Length-1));
                 csv.Append(Environment.NewLine);
                 line.Clear();
 
