@@ -220,5 +220,22 @@ namespace CMC_Meritto
         {
             lblFull.Text = search(txtSearchFull.Text, 2).ToString();
         }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CSV|*.csv";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                currentPath = openFileDialog.FileName;
+                editInputMod = true;
+                txtInp.Text = File.ReadAllText(currentPath, Encoding.Unicode);
+                lblStatusFileName.Text = currentPath;
+                inpBackup = File.ReadAllText(currentPath, Encoding.Unicode);
+            }
+
+
+        }
     }
 }
