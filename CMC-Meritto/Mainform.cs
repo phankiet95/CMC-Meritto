@@ -20,9 +20,11 @@ namespace CMC_Meritto
         DataTable table;
         string currentPath;
         string inpBackup = "";
+        string splitby = "Split by \"";
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+            splitby = cboSplitOption.Text;
         }
 
         bool editInputMod;
@@ -31,8 +33,16 @@ namespace CMC_Meritto
             lblStatusFileName.Text = currentPath + " *";
             if (editInputMod)
             {
-                table = MerittoCSVHelper.csvToGridEscapeQuote(txtInp.Text);
-                csvGridView.DataSource = table;
+                if (cboSplitOption.Text == splitby)
+                {
+                    table = MerittoCSVHelper.csvToGridEscapeQuote(txtInp.Text);
+                    csvGridView.DataSource = table;
+                } else
+                {
+                    table = MerittoCSVHelper.csvToGridNoQuote(txtInp.Text);
+                    csvGridView.DataSource = table;
+                }
+
                 //csvGridView.Rows[0].ReadOnly = true;
             }
         }
@@ -41,7 +51,14 @@ namespace CMC_Meritto
         {
             if (!editInputMod)
             {
-                txtInp.Text = MerittoCSVHelper.gridToCSV(csvGridView);
+                if (cboSplitOption.Text == splitby)
+                {
+                    txtInp.Text = MerittoCSVHelper.gridToCSV(csvGridView);
+                } else
+                {
+                    txtInp.Text = MerittoCSVHelper.gridToCSVNoQuote(csvGridView);
+                }
+                    
             }
         }
 
@@ -236,6 +253,17 @@ namespace CMC_Meritto
             }
 
 
+        }
+
+        private void cboSplitOption_TextChanged(object sender, EventArgs e)
+        {
+            if (cboSplitOption.Text == splitby)
+            {
+                picOption.Visible = false;
+            } else
+            {
+                picOption.Visible = true;
+            }
         }
     }
 }

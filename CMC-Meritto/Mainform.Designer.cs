@@ -37,25 +37,27 @@
             this.txtInp = new System.Windows.Forms.TextBox();
             this.csvGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSaveCsv = new MetroFramework.Controls.MetroButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboOntop = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFull = new System.Windows.Forms.Label();
+            this.lblContains = new System.Windows.Forms.Label();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtSearchFull = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusFileName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cboSplitOption = new System.Windows.Forms.ToolStripComboBox();
+            this.picOption = new System.Windows.Forms.PictureBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblContains = new System.Windows.Forms.Label();
-            this.lblFull = new System.Windows.Forms.Label();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.metroTab.SuspendLayout();
@@ -67,6 +69,7 @@
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,17 +189,6 @@
             this.panel2.Size = new System.Drawing.Size(30, 138);
             this.panel2.TabIndex = 2;
             // 
-            // btnReset
-            // 
-            this.btnReset.BackgroundImage = global::CMC_Meritto.Properties.Resources.return1;
-            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReset.Location = new System.Drawing.Point(2, 38);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(26, 23);
-            this.btnReset.TabIndex = 6;
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(2, 9);
@@ -254,6 +246,24 @@
             this.panel1.Size = new System.Drawing.Size(864, 35);
             this.panel1.TabIndex = 1;
             // 
+            // lblFull
+            // 
+            this.lblFull.AutoSize = true;
+            this.lblFull.Location = new System.Drawing.Point(813, 8);
+            this.lblFull.Name = "lblFull";
+            this.lblFull.Size = new System.Drawing.Size(13, 13);
+            this.lblFull.TabIndex = 5;
+            this.lblFull.Text = "0";
+            // 
+            // lblContains
+            // 
+            this.lblContains.AutoSize = true;
+            this.lblContains.Location = new System.Drawing.Point(383, 8);
+            this.lblContains.Name = "lblContains";
+            this.lblContains.Size = new System.Drawing.Size(13, 13);
+            this.lblContains.TabIndex = 4;
+            this.lblContains.Text = "0";
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -295,18 +305,27 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem});
+            this.saveAsToolStripMenuItem,
+            this.cboSplitOption});
             this.menuStrip1.Location = new System.Drawing.Point(10, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(876, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(876, 27);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(48, 23);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 23);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -315,7 +334,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -335,6 +354,40 @@
             this.lblStatusFileName.Size = new System.Drawing.Size(10, 17);
             this.lblStatusFileName.Text = ".";
             // 
+            // cboSplitOption
+            // 
+            this.cboSplitOption.Items.AddRange(new object[] {
+            "Split by \"",
+            "Split by ,"});
+            this.cboSplitOption.Name = "cboSplitOption";
+            this.cboSplitOption.Size = new System.Drawing.Size(121, 23);
+            this.cboSplitOption.Text = "Split by \"";
+            this.cboSplitOption.TextChanged += new System.EventHandler(this.cboSplitOption_TextChanged);
+            // 
+            // picOption
+            // 
+            this.picOption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picOption.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picOption.Image = global::CMC_Meritto.Properties.Resources.googledots5;
+            this.picOption.Location = new System.Drawing.Point(239, 22);
+            this.picOption.Name = "picOption";
+            this.picOption.Size = new System.Drawing.Size(101, 34);
+            this.picOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picOption.TabIndex = 7;
+            this.picOption.TabStop = false;
+            this.picOption.Visible = false;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackgroundImage = global::CMC_Meritto.Properties.Resources.return1;
+            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReset.Location = new System.Drawing.Point(2, 38);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(26, 23);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -347,38 +400,13 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lblContains
-            // 
-            this.lblContains.AutoSize = true;
-            this.lblContains.Location = new System.Drawing.Point(383, 8);
-            this.lblContains.Name = "lblContains";
-            this.lblContains.Size = new System.Drawing.Size(13, 13);
-            this.lblContains.TabIndex = 4;
-            this.lblContains.Text = "0";
-            // 
-            // lblFull
-            // 
-            this.lblFull.AutoSize = true;
-            this.lblFull.Location = new System.Drawing.Point(813, 8);
-            this.lblFull.Name = "lblFull";
-            this.lblFull.Size = new System.Drawing.Size(13, 13);
-            this.lblFull.TabIndex = 5;
-            this.lblFull.Text = "0";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
             // Mainform
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 546);
+            this.Controls.Add(this.picOption);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);
@@ -405,6 +433,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -439,6 +468,8 @@
         private System.Windows.Forms.Label lblContains;
         private System.Windows.Forms.Label lblFull;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox cboSplitOption;
+        private System.Windows.Forms.PictureBox picOption;
     }
 }
 
