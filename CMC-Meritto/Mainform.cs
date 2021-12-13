@@ -20,11 +20,11 @@ namespace CMC_Meritto
         DataTable table;
         string currentPath;
         string inpBackup = "";
-        string splitby = "Split by \"";
+        Encoding encode;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
-            splitby = cboSplitOption.Text;
+            encode = Encoding.Unicode;
         }
 
         bool editInputMod;
@@ -33,17 +33,22 @@ namespace CMC_Meritto
             lblStatusFileName.Text = currentPath + " *";
             if (editInputMod)
             {
-                if (cboSplitOption.Text == splitby)
+                if (cboSplitOption.SelectedIndex == 0)
                 {
                     table = MerittoCSVHelper.csvToGridEscapeQuote(txtInp.Text);
                     csvGridView.DataSource = table;
-                } else
+                }
+                if (cboSplitOption.SelectedIndex == 1)
                 {
                     table = MerittoCSVHelper.csvToGridNoQuote(txtInp.Text);
                     csvGridView.DataSource = table;
                 }
+                if (cboSplitOption.SelectedIndex == 2)
+                {
+                    table = MerittoCSVHelper.csvToGridHeaderQuoteDataQuote(txtInp.Text);
+                    csvGridView.DataSource = table;
+                }
 
-                //csvGridView.Rows[0].ReadOnly = true;
             }
         }
 
@@ -51,17 +56,17 @@ namespace CMC_Meritto
         {
             if (!editInputMod)
             {
-                if (cboSplitOption.Text == splitby)
+                if (cboSplitOption.SelectedIndex == 0)
                 {
                     txtInp.Text = MerittoCSVHelper.gridToCSV(csvGridView);
-                } else
+                }
+                if (cboSplitOption.SelectedIndex == 1)
                 {
                     txtInp.Text = MerittoCSVHelper.gridToCSVNoQuote(csvGridView);
                 }
                     
             }
         }
-
 
         private void txtInp_Click(object sender, EventArgs e)
         {
@@ -154,7 +159,7 @@ namespace CMC_Meritto
             saveFileDialog.Filter = "CSV|*.csv";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(saveFileDialog.FileName, txtInp.Text, Encoding.Unicode);
+                File.WriteAllText(saveFileDialog.FileName, txtInp.Text, encode);
                 MessageBox.Show("Saved" + saveFileDialog.FileName, "Notice", MessageBoxButtons.OK);
             }
         }
@@ -181,9 +186,9 @@ namespace CMC_Meritto
             string[] fileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             currentPath = fileList[0].ToString();
             editInputMod = true;
-            txtInp.Text = File.ReadAllText(currentPath, Encoding.Unicode);
+            txtInp.Text = File.ReadAllText(currentPath, encode);
             lblStatusFileName.Text = currentPath;
-            inpBackup = File.ReadAllText(currentPath, Encoding.Unicode);
+            inpBackup = File.ReadAllText(currentPath, encode);
 
         }
 
@@ -208,7 +213,7 @@ namespace CMC_Meritto
         {
             if (currentPath != "")
             {
-                File.WriteAllText(currentPath, txtInp.Text, Encoding.Unicode);
+                File.WriteAllText(currentPath, txtInp.Text, encode);
                 lblStatusFileName.Text = currentPath;
             } else
             {
@@ -247,9 +252,9 @@ namespace CMC_Meritto
             {
                 currentPath = openFileDialog.FileName;
                 editInputMod = true;
-                txtInp.Text = File.ReadAllText(currentPath, Encoding.Unicode);
+                txtInp.Text = File.ReadAllText(currentPath, encode);
                 lblStatusFileName.Text = currentPath;
-                inpBackup = File.ReadAllText(currentPath, Encoding.Unicode);
+                inpBackup = File.ReadAllText(currentPath, encode);
             }
 
 
@@ -257,13 +262,36 @@ namespace CMC_Meritto
 
         private void cboSplitOption_TextChanged(object sender, EventArgs e)
         {
-            if (cboSplitOption.Text == splitby)
-            {
-                picOption.Visible = false;
-            } else
-            {
-                picOption.Visible = true;
-            }
+
+        }
+
+        private void cboSplitOption_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void optionExplainToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CSVOptionForm optionForm = new CSVOptionForm();
+            optionForm.TopMost = true;
+            optionForm.ShowDialog();
+        }
+
+        private void unicodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            encode = Encoding.Unicode;
+            uTF8ToolStripMenuItem.Checked = false;
+            unicodeToolStripMenuItem.Checked = true;
+        }
+
+        private void uTF8ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            encode = Encoding.UTF8;
+            uTF8ToolStripMenuItem.Checked = true;
+            unicodeToolStripMenuItem.Checked = false;
+  
+
+
         }
     }
 }

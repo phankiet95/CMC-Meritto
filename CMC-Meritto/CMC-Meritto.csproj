@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSVOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CSVOptionForm.Designer.cs">
+      <DependentUpon>CSVOptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringHelper.cs" />
+    <EmbeddedResource Include="CSVOptionForm.resx">
+      <DependentUpon>CSVOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +126,9 @@
   <ItemGroup>
     <Content Include="meritto Icon.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\loading 3.gif" />
+    <None Include="Resources\loading 2.gif" />
+    <None Include="Resources\loading 1.gif" />
     <None Include="Resources\googledots5.gif" />
     <None Include="Resources\Screenshot_2.png" />
     <None Include="Resources\return1.png" />

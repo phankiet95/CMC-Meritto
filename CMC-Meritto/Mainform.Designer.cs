@@ -52,12 +52,15 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboSplitOption = new System.Windows.Forms.ToolStripComboBox();
+            this.optionExplainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusFileName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboSplitOption = new System.Windows.Forms.ToolStripComboBox();
-            this.picOption = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.encodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unicodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uTF8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.metroTab.SuspendLayout();
@@ -69,7 +72,6 @@
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -306,7 +308,9 @@
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
-            this.cboSplitOption});
+            this.encodeToolStripMenuItem,
+            this.cboSplitOption,
+            this.optionExplainToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(10, 60);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(876, 27);
@@ -338,6 +342,25 @@
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // cboSplitOption
+            // 
+            this.cboSplitOption.Items.AddRange(new object[] {
+            "Header: No Quote | Data: Quote",
+            "Header: No Quote | Data: No Quote"});
+            this.cboSplitOption.Name = "cboSplitOption";
+            this.cboSplitOption.Size = new System.Drawing.Size(210, 23);
+            this.cboSplitOption.Text = "Header: No Quote | Data: Quote";
+            this.cboSplitOption.Click += new System.EventHandler(this.cboSplitOption_Click);
+            this.cboSplitOption.TextChanged += new System.EventHandler(this.cboSplitOption_TextChanged);
+            // 
+            // optionExplainToolStripMenuItem
+            // 
+            this.optionExplainToolStripMenuItem.Name = "optionExplainToolStripMenuItem";
+            this.optionExplainToolStripMenuItem.Size = new System.Drawing.Size(113, 23);
+            this.optionExplainToolStripMenuItem.Text = "<- Option explain";
+            this.optionExplainToolStripMenuItem.Visible = false;
+            this.optionExplainToolStripMenuItem.Click += new System.EventHandler(this.optionExplainToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -353,29 +376,6 @@
             this.lblStatusFileName.Name = "lblStatusFileName";
             this.lblStatusFileName.Size = new System.Drawing.Size(10, 17);
             this.lblStatusFileName.Text = ".";
-            // 
-            // cboSplitOption
-            // 
-            this.cboSplitOption.Items.AddRange(new object[] {
-            "Split by \"",
-            "Split by ,"});
-            this.cboSplitOption.Name = "cboSplitOption";
-            this.cboSplitOption.Size = new System.Drawing.Size(121, 23);
-            this.cboSplitOption.Text = "Split by \"";
-            this.cboSplitOption.TextChanged += new System.EventHandler(this.cboSplitOption_TextChanged);
-            // 
-            // picOption
-            // 
-            this.picOption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picOption.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picOption.Image = global::CMC_Meritto.Properties.Resources.googledots5;
-            this.picOption.Location = new System.Drawing.Point(239, 22);
-            this.picOption.Name = "picOption";
-            this.picOption.Size = new System.Drawing.Size(101, 34);
-            this.picOption.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picOption.TabIndex = 7;
-            this.picOption.TabStop = false;
-            this.picOption.Visible = false;
             // 
             // btnReset
             // 
@@ -400,13 +400,37 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // encodeToolStripMenuItem
+            // 
+            this.encodeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unicodeToolStripMenuItem,
+            this.uTF8ToolStripMenuItem});
+            this.encodeToolStripMenuItem.Name = "encodeToolStripMenuItem";
+            this.encodeToolStripMenuItem.Size = new System.Drawing.Size(103, 23);
+            this.encodeToolStripMenuItem.Text = "Encoding Select";
+            // 
+            // unicodeToolStripMenuItem
+            // 
+            this.unicodeToolStripMenuItem.Checked = true;
+            this.unicodeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.unicodeToolStripMenuItem.Name = "unicodeToolStripMenuItem";
+            this.unicodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unicodeToolStripMenuItem.Text = "Unicode";
+            this.unicodeToolStripMenuItem.Click += new System.EventHandler(this.unicodeToolStripMenuItem_Click);
+            // 
+            // uTF8ToolStripMenuItem
+            // 
+            this.uTF8ToolStripMenuItem.Name = "uTF8ToolStripMenuItem";
+            this.uTF8ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uTF8ToolStripMenuItem.Text = "UTF-8";
+            this.uTF8ToolStripMenuItem.Click += new System.EventHandler(this.uTF8ToolStripMenuItem_Click);
+            // 
             // Mainform
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 546);
-            this.Controls.Add(this.picOption);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);
@@ -415,7 +439,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Mainform";
             this.Padding = new System.Windows.Forms.Padding(10, 60, 10, 10);
-            this.Text = "           CMC-Meritto";
+            this.Text = "           CMC-Meritto (Helio)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -433,7 +457,6 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -469,7 +492,10 @@
         private System.Windows.Forms.Label lblFull;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox cboSplitOption;
-        private System.Windows.Forms.PictureBox picOption;
+        private System.Windows.Forms.ToolStripMenuItem optionExplainToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unicodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uTF8ToolStripMenuItem;
     }
 }
 
