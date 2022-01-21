@@ -166,7 +166,7 @@ namespace CMC_Meritto
 
         private void btnSaveCsv_Click(object sender, EventArgs e)
         {
-            saveAs();
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -291,6 +291,11 @@ namespace CMC_Meritto
             unicodeToolStripMenuItem.Checked = false;
   
 
+
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
 
         }
     }
