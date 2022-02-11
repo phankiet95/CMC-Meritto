@@ -272,9 +272,20 @@ namespace CMC_Meritto
 
         private void optionExplainToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CSVOptionForm optionForm = new CSVOptionForm();
-            optionForm.TopMost = true;
-            optionForm.ShowDialog();
+            if (splitContainer1.Orientation == Orientation.Horizontal)
+            {
+                splitContainer1.Orientation = Orientation.Vertical;
+                splitContainer1.SplitterDistance = splitContainer1.Size.Width / 2;
+                return;
+            }
+
+            if (splitContainer1.Orientation == Orientation.Vertical)
+            {
+                splitContainer1.Orientation = Orientation.Horizontal;
+                splitContainer1.SplitterDistance = splitContainer1.Size.Height / 2;
+                return;
+            }
+            
         }
 
         private void unicodeToolStripMenuItem_Click(object sender, EventArgs e)
