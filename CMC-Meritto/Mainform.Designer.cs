@@ -92,7 +92,7 @@
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
             this.groupBox2.Location = new System.Drawing.Point(10, 87);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(964, 462);
+            this.groupBox2.Size = new System.Drawing.Size(969, 454);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
@@ -108,7 +108,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(958, 443);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(963, 435);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -118,7 +118,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(952, 34);
+            this.panel1.Size = new System.Drawing.Size(957, 34);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -137,7 +137,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(950, 32);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(955, 32);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel3
@@ -147,7 +147,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(405, 26);
+            this.panel3.Size = new System.Drawing.Size(407, 26);
             this.panel3.TabIndex = 0;
             // 
             // txtSearch
@@ -155,7 +155,7 @@
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(66, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(336, 20);
+            this.txtSearch.Size = new System.Drawing.Size(338, 20);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -174,7 +174,7 @@
             this.panel4.Controls.Add(this.lblFull);
             this.panel4.Controls.Add(this.metroLabel2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(414, 3);
+            this.panel4.Location = new System.Drawing.Point(416, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(34, 26);
             this.panel4.TabIndex = 1;
@@ -204,9 +204,9 @@
             this.panel5.Controls.Add(this.metroLabel3);
             this.panel5.Controls.Add(this.txtSearchFull);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(454, 3);
+            this.panel5.Location = new System.Drawing.Point(456, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(454, 26);
+            this.panel5.Size = new System.Drawing.Size(457, 26);
             this.panel5.TabIndex = 2;
             // 
             // metroLabel3
@@ -223,7 +223,7 @@
             this.txtSearchFull.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearchFull.Location = new System.Drawing.Point(69, 3);
             this.txtSearchFull.Name = "txtSearchFull";
-            this.txtSearchFull.Size = new System.Drawing.Size(382, 20);
+            this.txtSearchFull.Size = new System.Drawing.Size(385, 20);
             this.txtSearchFull.TabIndex = 2;
             this.txtSearchFull.TextChanged += new System.EventHandler(this.txtSearchFull_TextChanged);
             this.txtSearchFull.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchFull_KeyDown);
@@ -232,7 +232,7 @@
             // 
             this.panel6.Controls.Add(this.lblContains);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(914, 3);
+            this.panel6.Location = new System.Drawing.Point(919, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(33, 26);
             this.panel6.TabIndex = 3;
@@ -259,7 +259,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.67712F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(952, 397);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(957, 389);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // panel2
@@ -268,9 +268,9 @@
             this.panel2.Controls.Add(this.btnReset);
             this.panel2.Controls.Add(this.btnClear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(921, 3);
+            this.panel2.Location = new System.Drawing.Point(926, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(28, 391);
+            this.panel2.Size = new System.Drawing.Size(28, 383);
             this.panel2.TabIndex = 2;
             // 
             // cboOntop
@@ -279,7 +279,8 @@
             this.cboOntop.AutoSize = true;
             this.cboOntop.Checked = true;
             this.cboOntop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cboOntop.Location = new System.Drawing.Point(6, 371);
+            this.cboOntop.Enabled = false;
+            this.cboOntop.Location = new System.Drawing.Point(6, 363);
             this.cboOntop.Name = "cboOntop";
             this.cboOntop.Size = new System.Drawing.Size(15, 14);
             this.cboOntop.TabIndex = 6;
@@ -321,8 +322,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.csvGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(912, 391);
-            this.splitContainer1.SplitterDistance = 176;
+            this.splitContainer1.Size = new System.Drawing.Size(917, 383);
+            this.splitContainer1.SplitterDistance = 172;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -337,7 +338,7 @@
             this.txtInp.Multiline = true;
             this.txtInp.Name = "txtInp";
             this.txtInp.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInp.Size = new System.Drawing.Size(912, 176);
+            this.txtInp.Size = new System.Drawing.Size(917, 172);
             this.txtInp.TabIndex = 0;
             this.txtInp.WordWrap = false;
             this.txtInp.Click += new System.EventHandler(this.txtInp_Click);
@@ -358,7 +359,7 @@
             this.csvGridView.Location = new System.Drawing.Point(0, 0);
             this.csvGridView.Margin = new System.Windows.Forms.Padding(12, 12, 3, 3);
             this.csvGridView.Name = "csvGridView";
-            this.csvGridView.Size = new System.Drawing.Size(912, 205);
+            this.csvGridView.Size = new System.Drawing.Size(917, 201);
             this.csvGridView.TabIndex = 1;
             this.csvGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.csvGridView_CellEndEdit);
             this.csvGridView.Click += new System.EventHandler(this.csvGridView_Click);
@@ -374,7 +375,7 @@
             this.cboSplitOption});
             this.menuStrip1.Location = new System.Drawing.Point(10, 60);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(964, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(969, 27);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -424,14 +425,14 @@
             this.unicodeToolStripMenuItem.Checked = true;
             this.unicodeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.unicodeToolStripMenuItem.Name = "unicodeToolStripMenuItem";
-            this.unicodeToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.unicodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.unicodeToolStripMenuItem.Text = "Unicode";
             this.unicodeToolStripMenuItem.Click += new System.EventHandler(this.unicodeToolStripMenuItem_Click);
             // 
             // uTF8ToolStripMenuItem
             // 
             this.uTF8ToolStripMenuItem.Name = "uTF8ToolStripMenuItem";
-            this.uTF8ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.uTF8ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uTF8ToolStripMenuItem.Text = "UTF-8";
             this.uTF8ToolStripMenuItem.Click += new System.EventHandler(this.uTF8ToolStripMenuItem_Click);
             // 
@@ -450,9 +451,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatusFileName});
-            this.statusStrip1.Location = new System.Drawing.Point(10, 552);
+            this.statusStrip1.Location = new System.Drawing.Point(10, 544);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(964, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(969, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -479,7 +480,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 584);
+            this.ClientSize = new System.Drawing.Size(989, 576);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);

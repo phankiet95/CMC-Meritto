@@ -48,7 +48,6 @@ namespace CMC_Meritto
                     table = MerittoCSVHelper.csvToGridHeaderQuoteDataQuote(txtInp.Text);
                     csvGridView.DataSource = table;
                 }
-
             }
         }
 
@@ -262,7 +261,7 @@ namespace CMC_Meritto
 
         private void cboSplitOption_TextChanged(object sender, EventArgs e)
         {
-
+            reloadData(sender, e);
         }
 
         private void cboSplitOption_Click(object sender, EventArgs e)
@@ -293,6 +292,7 @@ namespace CMC_Meritto
             encode = Encoding.Unicode;
             uTF8ToolStripMenuItem.Checked = false;
             unicodeToolStripMenuItem.Checked = true;
+            reloadData(sender, e);
         }
 
         private void uTF8ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,13 +300,21 @@ namespace CMC_Meritto
             encode = Encoding.UTF8;
             uTF8ToolStripMenuItem.Checked = true;
             unicodeToolStripMenuItem.Checked = false;
-  
-
-
+            reloadData(sender, e);
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
+
+        }
+
+        private void reloadData(object sender, EventArgs e)
+        {
+            if (currentPath != null && currentPath != "")
+            {
+                txtInp.Text = File.ReadAllText(currentPath, encode);
+                txtInp_TextChanged(sender, e);
+            }
 
         }
     }
